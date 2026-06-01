@@ -1,0 +1,16 @@
+{
+  "name": "leado-ai-qualification-assistant",
+  "version": "1.0.0",
+  "private": true,
+  "description": "AI lead qualification assistant for Bitrix24 integrators",
+  "scripts": {
+    "dev": "npm run dev --workspace server & npm run dev --workspace client",
+    "build": "npm run build --workspace client",
+    "start": "npm run start --workspace server",
+    "lint": "npm run lint --workspace client && npm run lint --workspace server"
+  },
+  "workspaces": [
+    "client",
+    "server"
+  ]
+}
