@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Leado Call Coach — аналитика звонков</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./src/styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="hero">
+        <div>
+          <p class="eyebrow">MVP для отдела продаж</p>
+          <h1>AI‑подсказки менеджеру во время звонка</h1>
+          <p class="hero__text">
+            Приложение слушает разговор, анализирует речь клиента и показывает менеджеру следующий лучший вопрос,
+            риск сделки, возражения и прогресс по скрипту.
+          </p>
+          <div class="hero__actions">
+            <button class="button button--primary" id="start-demo">Запустить демо звонка</button>
+            <button class="button button--ghost" id="start-listening">Слушать микрофон</button>
+          </div>
+          <p class="hint" id="speech-support"></p>
+        </div>
+        <aside class="score-card" aria-label="Сводка звонка">
+          <span class="score-card__label">Live score</span>
+          <strong id="call-score">82</strong>
+          <span id="risk-label">Низкий риск</span>
+        </aside>
+      </section>
+
+      <section class="dashboard" aria-label="Рабочее место менеджера">
+        <article class="panel panel--coach">
+          <div class="panel__header">
+            <div>
+              <p class="eyebrow">Подсказка сейчас</p>
+              <h2 id="next-action">Начните с приветствия и уточните цель звонка.</h2>
+            </div>
+            <span class="live-pill"><span></span> live</span>
+          </div>
+          <div class="suggestion-grid" id="objection-list"></div>
+        </article>
+
+        <article class="panel">
+          <div class="panel__header">
+            <div>
+              <p class="eyebrow">Тональность</p>
+              <h2 id="sentiment-label">Нейтральный</h2>
+            </div>
+          </div>
+          <div class="meter">
+            <div class="meter__bar" id="sentiment-meter"></div>
+          </div>
+          <dl class="metrics">
+            <div>
+              <dt>Говорит менеджер</dt>
+              <dd id="manager-ratio">0%</dd>
+            </div>
+            <div>
+              <dt>Говорит клиент</dt>
+              <dd id="client-ratio">0%</dd>
+            </div>
+            <div>
+              <dt>Слова‑паразиты</dt>
+              <dd id="filler-count">0</dd>
+            </div>
+          </dl>
+        </article>
+
+        <article class="panel">
+          <div class="panel__header">
+            <div>
+              <p class="eyebrow">Скрипт продаж</p>
+              <h2>Контроль этапов</h2>
+            </div>
+          </div>
+          <ul class="checklist" id="checklist"></ul>
+        </article>
+
+        <article class="panel transcript-panel">
+          <div class="panel__header">
+            <div>
+              <p class="eyebrow">Расшифровка</p>
+              <h2>Транскрипт звонка</h2>
+            </div>
+            <button class="button button--small" id="clear-transcript">Очистить</button>
+          </div>
+          <div class="manual-input">
+            <select id="speaker-select" aria-label="Кто говорит">
+              <option value="manager">Менеджер</option>
+              <option value="client">Клиент</option>
+            </select>
+            <input id="manual-text" type="text" placeholder="Введите реплику или вставьте текст звонка" />
+            <button class="button button--primary button--small" id="add-line">Добавить</button>
+          </div>
+          <div class="transcript" id="transcript"></div>
+        </article>
+      </section>
+    </main>
+
+    <script type="module" src="./src/app.js"></script>
+  </body>
+</html>
